@@ -5,28 +5,24 @@ class App extends Component {
   constructor(props) {
     super(props); 
 
-    this.state = {counter: 0};
-
+    this.state = {counter:"0"};
   
-    this.updateValue = this.updateValue.bind(this);
-    
   }
-  
+
+  onChange = (event) => {
+    this.setState({counter:event.target.value.length})
+}
+
   render() {
     return (
       <div className="container">
-        <textarea rows="3" 
-        ></textarea>
-        <div  className="counter" onKeyPress={this.updateValue} >{this.state.counter}  </div>
+        <textarea rows="3"  
+        onChange={this.onChange}>          
+        </textarea>
+        <div className="counter" >{this.state.counter}</div>
       </div>
     )
   }
- 
-  updateValue = () => {
-    this.setState({ 
-      counter: this.state.counter + 1
-    });
   } 
-}
 
 export default App;
